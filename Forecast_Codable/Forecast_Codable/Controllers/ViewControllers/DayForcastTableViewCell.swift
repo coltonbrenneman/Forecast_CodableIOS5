@@ -9,11 +9,15 @@ import UIKit
 
 class DayForcastTableViewCell: UITableViewCell {
 
+    // MARK: - Outlets
     @IBOutlet weak var dayNameLabel: UILabel!
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var forcastedHighLabel: UILabel!
     
-    func updateViews() {
-        
+    // MARK: - Functions
+    func updateViews(day: Day) {
+        dayNameLabel.text = day.validDate
+        forcastedHighLabel.text = "High: \(day.highTemp)"
+        iconImageView.image = UIImage(named: day.weather.iconString)
     }
 }
